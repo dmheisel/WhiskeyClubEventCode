@@ -1,7 +1,7 @@
 //creates the event!
 function createWhiskeyEvent() {
 	var eventRecurrence = buildRecurrenceRule();
-	var guestList = guestList();
+	var guestList = getAttendees();
 	var startDate = getDates(2020)[0]; // need this to set the start and end times on the event because reasons
 	var startTime = new Date(startDate.setHours(18));
 	var endTime = new Date(startDate.setHours(22));
@@ -14,10 +14,10 @@ function createWhiskeyEvent() {
 			eventRecurrence,
 			{
 				description:
-					"Let's get together for some whiskey, scotch, whisky, bourbon, rye...but most importantly, good times with good friends! \n\nIn the spirit of software development, it feels necessary that this meeting's schedule has an odd component.  Therefor, we are meeting on the second-to-last Thursday of every month.  Default location is Merlin's Rest -- so far a pretty suitable place for code-wizards but subject to change with future discussions.  \n\nPlease be sure to RSVP and notify of any +1s by the preceding Monday, so I can call ahead and get a table for us/check for conflicts.  \n\n And if  anyone's interested, you can find the code I used to make this event on my Github! (turns out, Google Calendars doesn't natively support second-to-last Thursday scheduling, so this was made in Google Apps Script.)",
+					"Let's get together for some scotch, some whiskey, maybe some bourbon or rye...but most importantly, good times with good friends.  Come to Polybius Whiskey Club and catch up with the cohort! Share what you're working on, how the job or the job hunt is going, and any new (or old) developments.  \n\nIn the spirit of software development, it feels necessary for this meeting's schedule to have an odd component.  Therefor, we are meeting on the second-to-last Thursday of every month.  Default location is Merlin's Rest -- a suitable place for code-wizards but of course subject to change with future discussions.  \n\nPlease be sure to RSVP and notify of any +1s by the preceding Monday, so I can call ahead and get a table for us/check for conflicts. \n\nAnd if  anyone's interested, you can find the code I used to make this event on my Github. (Turns out, Google Calendars doesn't natively support second-to-last Thursday scheduling, so this was made in Google Apps Script.)",
 				location: "Merlins Rest",
 				sendInvites: true,
-				guestList: guestList
+				guests: guestList
 			}
 		)
 		.setAnyoneCanAddSelf(true)
@@ -36,7 +36,6 @@ function getAttendees() {
 			return guest.getEmail();
 		})
 		.join();
-	// Logger.log(guestList);
 	return guestList;
 }
 
