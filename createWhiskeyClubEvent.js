@@ -12,14 +12,16 @@ function createWhiskeyEvent() {
 			eventRecurrence,
 			{
 				description:
-					"Let's get together for some whiskey, scotch, whisky, bourbon, rye...but most importantly, good times with good friends! \nIn the spirit of software development, it feels necessary that this meeting has an odd component.  Therefor, we are meeting on the second-to-last Thursday of every month.  Mark your calendars now!   \n\n If anyone's interested, you can find the code I used to make this event on my Github!",
+					"Let's get together for some whiskey, scotch, whisky, bourbon, rye...but most importantly, good times with good friends! \n\nIn the spirit of software development, it feels necessary that this meeting has an odd component.  Therefor, we are meeting on the second-to-last Thursday of every month.  Default location is Merlin's Rest.  \n\nPlease be sure to RSVP within a week prior to the event, so I can call ahead and get a table for us/check for conflicts!  If anyone's interested, you can find the code I used to make this event on my Github!",
 				location: "Merlins Rest"
 			}
 		)
 		.setAnyoneCanAddSelf(true)
 		.setGuestsCanInviteOthers(true)
 		.setGuestsCanSeeGuests(true)
-		.setGuestsCanModify(false);
+        .setGuestsCanModify(false)
+        .addEmailReminder(8640) // email reminder 6 days before the event
+    
 }
 //grabs the list of attendees from our last gathering in December 2019
 function getAttendees() {
