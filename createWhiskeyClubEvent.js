@@ -19,9 +19,8 @@ function createWhiskeyEvent() {
 		.setAnyoneCanAddSelf(true)
 		.setGuestsCanInviteOthers(true)
 		.setGuestsCanSeeGuests(true)
-        .setGuestsCanModify(false)
-        .addEmailReminder(8640) // email reminder 6 days before the event
-    
+		.setGuestsCanModify(false)
+		.addEmailReminder(8640); // email reminder 6 days before the event
 }
 //grabs the list of attendees from our last gathering in December 2019
 function getAttendees() {
